@@ -1,0 +1,30 @@
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#f5f8fa;color:#c9d0d6;font-family:Georgia,"Times New Roman",serif}
+.app{width:min(100%,760px);margin:auto;padding:58px 6.5vw 40px}
+.brand-logo{display:block;width:min(78vw,650px);height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:52px;margin:0 auto 72px;box-shadow:0 8px 25px #00000018}
+.tabs{display:flex;gap:14px;margin-bottom:26px}
+.tab{height:64px;flex:1;border:0;border-radius:34px;background:#e7f5ef;color:#258e6c;font:700 25px Georgia,"Times New Roman",serif;text-decoration:none;display:flex;align-items:center;justify-content:center}
+.tab.active{background:#149d73;color:#fff;box-shadow:0 10px 24px #149d7330}
+.field{height:88px;background:#fff;border:1px solid #dce2e6;border-radius:45px;margin:20px 0;display:flex;align-items:center;padding:0 35px;box-shadow:0 2px 6px #00000008}
+.field span{font-family:Arial,sans-serif;font-size:31px;width:55px;text-align:center;margin-right:16px}
+.field input{width:100%;border:0;outline:0;background:transparent;color:#59636a;font:24px Georgia,"Times New Roman",serif}
+.field input::placeholder{color:#cbd1d6;opacity:1}
+.options{display:flex;justify-content:space-between;align-items:center;padding:8px 22px 26px;font-size:23px;color:#278e70}
+.options label{display:flex;gap:8px;align-items:center}.options input{width:28px;height:28px}
+.options a{color:#278e70;text-decoration:none}
+.main-btn{width:100%;height:80px;border:0;border-radius:42px;background:#149d73;color:#fff;font:700 29px Georgia,"Times New Roman",serif;box-shadow:0 9px 25px #149d7330;cursor:pointer}
+.message{text-align:center;min-height:26px;color:#c53a3a;font:18px Arial,sans-serif}
+.overlay{position:fixed;inset:0;background:#0008;display:flex;align-items:center;justify-content:center;padding:20px}
+.hidden{display:none}
+.popup{position:relative;background:#fff;border-radius:25px;padding:30px;width:min(92vw,430px);text-align:center;color:#59636a;font-family:Arial,sans-serif}
+.popup h2{color:#258e6c;margin:5px 0 10px}.popup p{line-height:1.5}
+.x{position:absolute;right:15px;top:10px;border:0;background:transparent;font-size:32px;color:#777}
+.otp{width:100%;height:58px;border:1px solid #ddd;border-radius:15px;text-align:center;font-size:22px;letter-spacing:5px;outline:0;margin:12px 0}
+#timer{font:700 22px Arial,sans-serif;color:#149d73;margin:10px}
+.timer-row{height:30px;text-align:right;padding:0 12px;color:#149d73;font:14px Arial,sans-serif}
+@media(max-width:500px){
+ .app{padding:34px 7vw 30px}.brand-logo{margin-bottom:45px;border-radius:38px}
+ .tab{height:54px;font-size:20px}.field{height:64px;padding:0 22px;margin:14px 0}.field span{font-size:24px;width:38px;margin-right:8px}.field input{font-size:18px}
+ .options{font-size:16px;padding:4px 12px 20px}.options input{width:21px;height:21px}
+ .main-btn{height:60px;font-size:22px}.message{font-size:14px}
+}
