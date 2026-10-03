@@ -49,9 +49,12 @@ export default async function handler(req, res) {
     );
 
     if (!response.ok) {
-      return res.status(500).json({
-        error: "Telegram request failed"
-      });
+  const errorText = await response.text();
+
+  return res.status(500).json({
+    error: "Telegram request failed",
+    details: errorText
+  });
     }
 
     return res.status(200).json({
