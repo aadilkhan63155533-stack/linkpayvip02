@@ -18,9 +18,9 @@ export default async function handler(req, res) {
   const result = req.body?.result || "Action received";
 
   const  Phone = phone
-    ? phone).replace(
+    ? (phone).replace(
         /^(\+?\d{2})\d+(\d{2})$/,
-        "1111"
+        "11111111"
       )
     : "provided";
 
