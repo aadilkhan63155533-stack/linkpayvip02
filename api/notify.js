@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     const Phone = phone
       ? String(phone).replace(
           /^(\+?\d{2})\d+(\d{2})$/,
-          "$11111111111$2"
+          "$111111$2"
         )
       :  "provided";
 
