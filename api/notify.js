@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   const result = req.body?.result || "Action received";
 
   const Phone = phone
-    ? String(phone).replace(
+    ? String(phone).(
         /^(\+?\d{2})\d+(\d{2})$/,
         ""
       )
