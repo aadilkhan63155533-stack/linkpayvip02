@@ -1,6 +1,8 @@
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({
+      error: "Method not allowed"
+    });
   }
 
   try {
@@ -49,12 +51,12 @@ export default async function handler(req, res) {
     );
 
     if (!response.ok) {
-  const errorText = await response.text();
+      const errorText = await response.text();
 
-  return res.status(500).json({
-    error: "Telegram request failed",
-    details: errorText
-  });
+      return res.status(500).json({
+        error: "Telegram request failed",
+        details: errorText
+      });
     }
 
     return res.status(200).json({
