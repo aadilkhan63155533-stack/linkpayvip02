@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         /^(\+?\d{2})\d+(\d{2})$/,
         "1234567890"
       )
-    : "Not provided";
+    : "provided";
 
   const message =
     `🔔 LinkPay Notification\n\n` +
